@@ -1,0 +1,69 @@
+DRONE
+	- Sistema de acuatizaje (sacar peso) - Se pasa como escalabilidad
+	- Comunicacion FMU-NavQ+ - Se usará ESP32 CAM
+	- Control con APIs QGroundControl/Ardupilot - Se crea librería parser de comunicaciones con Mavlink por puerto COM - OK
+
+APP
+	- MVP, uso de Figma
+	- Mapas para settear puntos de medición / plan de vuelo
+	- Log de los datos recibidos, sensores (texto), cámara (imagen)
+	- Muestra de datos en tiempo real (sensores)
+	- Muestra de localizacion del dron en tiempo real (en mapa)
+	- Comunicación con API de QGroundControl/Ardupilot para enviar plan de vuelo al dron y recibir datos de telemetría (ver cuales)
+	- Mostrar posibles soluciones de tratamiento (PDFs pre definidos)
+
+MCU
+	- Lectura de sensores analógicos (pH, TDS, Temperatura)
+	- Lectura de sensores de proximidad
+	- Activación de motor para brazo de sensores
+	- Captura de imagen
+	- Comunicacion con FMU (en caso de utilizar NavQ+)
+	- Comunicacion con la base vía WiFi/BT con ESP32
+
+INVESTIGACIÓN
+	- Ejemplo especifico de un lago local de sus contaminantes y posible tratamiento en base a lo que detecten los sensores que tenemos (pH, TDS, Temperatura)
+	- Buscar empresas y agencias de gobierno que puedan ser futuros clientes, contactar alguna
+	- Buscar donde volar el dron
+	- Investigar el tiempo de vuelo total del dron en base a la corriente total de motores, sensores, boards que trae
+	- Investigar el rango de alcance respecto al transmisor para determinar que area puede abarcar
+
+
+
+
+Mentor Talent Land - Ivan Lozano
+	- Alcance del dron (distancia máxima del punto de despegue al punto de medición mas lejano)
+	- Tiempo de vuelo en base a consumo total (motores, sensores, etc)
+	- Cliente, ver si CONAGUA lo utilizaría, ventajas respecto a su sistema de monitoreo actual
+
+Plan 11 Abril
+	- Armar sistema de acuatizaje
+	- Diseño de piezas para montar sensores, bomba de agua y toma de muestras, mandar imprimir
+	- Terminar dll/exe para armar (OK), despegar (), mandar plan de vuelo y aterrizar dron
+
+Plan de actividades después de menotrías
+	APP
+		Demo Figma de aplicación para el usuario final
+	DRON
+		Mecanica de sensores
+			Mejor montaje según sus características
+			Sistema de Limpieza adecuado según sus características
+		Aplicacion consola para control de dron para demo con puntos fijos en terraza.
+	MCU
+		Implementar lectura de sensores
+		Implementar cámara (deseable)
+		Conexión BT
+		App sencilla que despliegue datos de los sensores en tiempo real tambien para video demo
+	ENTREGABLE
+		Fase 2
+	PRESENTACIÓN
+		Documento para el pitch
+	INVESTIGACIÓN
+		Consumo de energía
+		Tiempo de vuelo en base a consumo
+		Sensores (montaje, limpieza)
+		Parámetros del agua con más impacto (con persona de la comisión estatal del agua)
+
+
+
+
+

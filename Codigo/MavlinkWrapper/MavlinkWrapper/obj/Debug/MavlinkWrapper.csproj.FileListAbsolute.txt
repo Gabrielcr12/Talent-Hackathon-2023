@@ -1,0 +1,7 @@
+C:\Users\uidd7372\OneDrive - Continental AG\CCC\2022\3 - Custom Robotics\Talent Land\Hackathon\2023\Codigo\MavlinkWrapper\MavlinkWrapper\obj\Debug\MavlinkWrapper.csproj.AssemblyReference.cache
+C:\Users\uidd7372\OneDrive - Continental AG\CCC\2022\3 - Custom Robotics\Talent Land\Hackathon\2023\Codigo\MavlinkWrapper\MavlinkWrapper\obj\Debug\MavlinkWrapper.csproj.CoreCompileInputs.cache
+C:\Users\uidd7372\OneDrive - Continental AG\CCC\2022\3 - Custom Robotics\Talent Land\Hackathon\2023\Codigo\MavlinkWrapper\MavlinkWrapper\bin\Debug\MavlinkWrapper.exe.config
+C:\Users\uidd7372\OneDrive - Continental AG\CCC\2022\3 - Custom Robotics\Talent Land\Hackathon\2023\Codigo\MavlinkWrapper\MavlinkWrapper\bin\Debug\MavlinkWrapper.exe
+C:\Users\uidd7372\OneDrive - Continental AG\CCC\2022\3 - Custom Robotics\Talent Land\Hackathon\2023\Codigo\MavlinkWrapper\MavlinkWrapper\bin\Debug\MavlinkWrapper.pdb
+C:\Users\uidd7372\OneDrive - Continental AG\CCC\2022\3 - Custom Robotics\Talent Land\Hackathon\2023\Codigo\MavlinkWrapper\MavlinkWrapper\obj\Debug\MavlinkWrapper.exe
+C:\Users\uidd7372\OneDrive - Continental AG\CCC\2022\3 - Custom Robotics\Talent Land\Hackathon\2023\Codigo\MavlinkWrapper\MavlinkWrapper\obj\Debug\MavlinkWrapper.pdb

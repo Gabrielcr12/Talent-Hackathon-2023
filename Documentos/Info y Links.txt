@@ -1,0 +1,105 @@
+----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
+
+Adiciones al dron para proyecto:
+	Forma de tomar muestras
+	Forma de tomar muestras a diferentes profundidades
+	Toma de imagen
+	Captura de coordenadas
+
+----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
+La Secretaria de Medio Ambiente y Recursos Naturales (SEMARNAT), el 11 de marzo de 2022, publicó en el Diario Oficial de la 
+Federación la Norma Oficial Mexicana NOM-001-SEMARNAT-2021, que establece los límites permisibles de contaminantes en las 
+descargas de aguas residuales en cuerpos receptores propiedad de la nación.
+Webinar Actualización de la NOM-001- SEMARNAT-2021.
+https://www.youtube.com/watch?v=83clPUDtVok
+
+La norma se actualizó en 2021, 25 años despues de crearse.
+La norma es exclusiva para descargas de aguas residuales directas en cuerpos receptores
+La norma pide reporte trimestral
+
+Parametros:
+	Temperatura
+	pH
+	Grasas y aceites
+	Solidos SST
+	Materia organica
+	Nitrogeno
+	Fosforo
+	Conductividad electrica
+	Parametros biologicos ecoli
+	Color
+	Toxicidad
+	Metales
+
+Coordenadas geograficas es necesario reportarlas
+----------------------------------------------------------------------------------------------------------------------------
+USDA
+Uso de drones para toma de muestras
+https://www.youtube.com/watch?v=bAm3xDpDqNw
+Uso principal para detectar ecoli para asegurar que el sector agricola no use agua contaminada
+----------------------------------------------------------------------------------------------------------------------------
+Toma de muestras SEMARNAT
+https://www.youtube.com/watch?v=HW_ztVp-imk
+----------------------------------------------------------------------------------------------------------------------------
+Instituto Mexicano de tecnologia del agua
+Uso de drones, solo para monitoreo de presas y canales con imagenes, asi como el monitoreo del proceso de obras
+https://www.facebook.com/Semarnatmx/videos/martesdeciencia-drones-en-el-sector-agua/10156901976789918/?locale=es_ES
+----------------------------------------------------------------------------------------------------------------------------
+Adaptive Water Sampling Device for Aerial Robots
+https://www.mdpi.com/2504-446X/4/1/5
+----------------------------------------------------------------------------------------------------------------------------
+Sensores de calidad de agua
+https://www.instructables.com/Water-Quality-Sensor/
+----------------------------------------------------------------------------------------------------------------------------
+Water quality testing in a river
+https://www.youtube.com/watch?v=7GY4UB8x3s4
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
