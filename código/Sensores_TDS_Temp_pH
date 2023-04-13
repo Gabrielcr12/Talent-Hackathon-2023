@@ -1,0 +1,152 @@
+#define trigPin 13 // Aqui le estamos diciendo que de ahora en adelante 
+// el sketch debe traducir trigPin por el numero 13 
+// este numero se correspondera al pin que vamos a usar para 
+// disparar (trigger en ingles) nuestra señal
+// si mas adelante queremos redefinir el pin solo tenemos que 
+// hacer el cambio en esta parte del programa
+
+
+#define echoPin 12 // Aqui le estamos diciendo que de ahora en adelante 
+// el sketch debe traducir echoPin por el numero 12 
+// este numero se correspondera al pin que vamos a usar para 
+// escuchar el eco (echo en ingles) de la señal que habiamos disparado 
+// desde el pin que hayamos definido como trigPin
+// si mas adelante queremos redefinir el pin solo tenemos que 
+// hacer el cambio en esta parte del programa
+
+#define lEDinPin 10 // Aqui le estamos diciendo que de ahora en adelante 
+// el sketch debe traducir lEDinPin por el numero 10 
+// este numero se correspondera al pin que vamos a usar para 
+// encender un LED de aviso de proximidad de obstaculo
+// segun recibamos un ECO valido
+
+
+#define lEDoutPin 9 // Aqui le estamos diciendo que de ahora en adelante 
+// el sketch debe traducir lEDoutPin por el numero 9 
+// este numero se correspondera al pin que vamos a usar para 
+// encender un LED de aviso de que si hay obstaculos estan fuera del rango definido
+// segun la distancia que calculemos con el eco recibido
+
+#define rangoAlcance 200 // Aqui le estamos definiendo el alcance de proximidad 
+// para encender el pin de proximidad lEDinPin 
+// o para encender el pin de no deteccion de obstaculo lEDoutPin
+// el sketch debe traducir rangoAlcance 
+// por el numero la distancia en la que queremos detectar obstaculos                  
+
+
+
+// Ahora configuramos el bloque setup 
+// que es la parte del sketch donde decimos que pines vamos a usar
+// y si son analogicos (ANALOG) o digitales (DIGITAL)
+// si son de recepcion (INPUT) o (OUTPUT)
+// si vamos a comunicarnos por el puerto serie o no
+// (y asi poder ver leer por el monitor los resultados)
+// etc
+
+
+void setup() 
+{
+ 
+   Serial.begin (9600); 
+  // Gracias al puerto serie, podemos leer lo que Arduino recibe por sus canales 
+  // Abre un puerto de comunicacion serie 
+  // y espera a que se abra
+  // y le estable la velocidad de transmision 
+  // de esta informacion en baudios
+  // un baudio es un bit por segundo 
+  // En este caso a 9600 baudios
+
+  pinMode(trigPin, OUTPUT);  // aqui le decimos a nuestro Arduino 
+  //que el disparador, es un pin tipo OUTPUT (salida en ingles)
+  pinMode(echoPin, INPUT);  // aqui le decimos a nuestro Arduino 
+  //que el eco, lo recibimos en un pin tipo INPUT 
+  //(entrada en ingles)
+  pinMode(lEDinPin, OUTPUT);  // aqui le decimos a nuestro Arduino 
+  //que el pin lEDinPIN es un PIN de salida
+  pinMode(lEDoutPin, OUTPUT);  // aqui le decimos a nuestro Arduino 
+  // que el pin lEDoutPIN es un PIN de salida            
+
+}
+
+
+// Configuramos el bloque loop
+// Es la parte principal de nuestro programa pues en el tendremos 
+// que poner el código para que el microcontrolador lo ejecute las ordenes que le demos
+// lo ejecute de manera repetitiva, mientras la placa Arduino tenga energía
+
+void loop() 
+{
+  int duracion, distancia; // aqui lo que hacemos es definir dos variables
+  // locales, esto es que solo se utilizan 
+  // en esta parte del codigo
+  // y le dice al microcontrolador que tanto la 
+  // duracion como la distancia, van a ser numeros enteros (INT)
+
+
+  digitalWrite(trigPin, HIGH); // ahora le dice que dispare (HIGH) por el pin de disparo
+  // o sea que el el pin del trigger emita un pulso (digitalWrite)
+  // cuando esto sucede, nuestro sensor emite pulsos 
+  // rapidos a 40KHz (frecuencia no audible por
+  // los humanos) y espera el eco
+
+  delayMicroseconds(1000);  // Esta orden hace que retrase (delay) 
+  // 1000 milisegundos (Microseconds) 
+  // la ejecucion de la siguiente orden del programa
+
+  digitalWrite(trigPin, LOW); // transcurridos un tiempo (1000) le dice que 
+  // no se apague (LOW), 
+  // o lo que es lo mismo que escriba (Write) un pulso (digital)  bajo (LOW)
+
+  duracion = pulseIn(echoPin, HIGH); 
+  // Para calcular la duracion se definimos una variable con  
+  // una funcion que calcula el tiempo
+  // que ha tardado un pulso en cambiar
+  // de Alto a Bajo o viceversa. 
+  // Esta funcion concreta (pulseIn)
+  // devuelve la anchura del pulso 
+  // en microsegundos.
+
+  distancia = (duracion/2) / 29.1; // aplicando la formula de la 
+  // distancia= velocidad del sonido cm/us por 
+  // el la duracion en calculada con el PulseIn
+  // obtendremos la distancia en centimetros
+
+  if (distancia >= rangoAlcance || distancia <= 0)
+  { 
+
+    // ahora para verificar que no se nos      
+    // queda esperando ecos de objetos muy alejados
+    // le decimos que si el objeto esta a
+    // más del rango de alcance definido por rangoAlcance a una distancia 
+    // negativa (por errores de calculo) que alerte con un mensaje de aviso
+
+    Serial.println("Fuera de rango"); 
+    // y este es el mensaje que hemos definido
+    // para que lo escriba en la consola
+
+    Serial.println("enciendo el led rojo");  
+    // te avisa que va a encender el pin de lejania
+
+    digitalWrite (lEDoutPin, HIGH); 
+    delayMicroseconds (500);
+    digitalWrite (lEDoutPin, LOW);
+
+  }
+  else 
+  {                       
+    // en caso de que no este fuera de rango, entonces
+
+    Serial.print(distancia);  // te pinta la distancia
+    Serial.println(" cm");    // y le suma la coletilla de las unidades  
+    // que ha usado, en este caso centimetros
+    Serial.println("enciendo el led verde");
+    // te avisa que va a encender el pin de proximidad
+
+    digitalWrite(lEDinPin, HIGH); 
+    delayMicroseconds (500);
+    digitalWrite(lEDinPin, LOW);
+  }
+
+  delay(500); 
+  // esperamos medio segundo (o sea 500 milisegundos) y volvemos a empezar
+}
