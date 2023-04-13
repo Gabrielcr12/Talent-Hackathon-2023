@@ -2,7 +2,8 @@
 using System.Threading;
 using System.ComponentModel;
 using System.IO.Ports;
-using MavLink; 
+using MavLink;
+using System.Diagnostics;
 
 namespace MavlinkWrapper
 {
@@ -26,7 +27,9 @@ namespace MavlinkWrapper
             NOT_CONNECTED,
             CONNECTED,
             ARMING,
-            ARMED
+            ARMED,
+            TAKING_OFF,
+            FLYING
         }
 
         public static int Main(string[] args)
@@ -51,6 +54,13 @@ namespace MavlinkWrapper
                 Console.Write("Arming Drone...");
                 Thread.Sleep(1000);
                 Arm();
+
+                while (dronState == DroneStates.ARMING) ;
+
+                dronState = DroneStates.TAKING_OFF;
+                Console.Write("Taking Off...");
+                Thread.Sleep(1000);
+                TakeOff();
             }
             catch
             {
@@ -79,6 +89,24 @@ namespace MavlinkWrapper
             msg.param5 = 0;
             msg.param6 = 0;
             msg.param7 = 0;
+
+            SendPacket(msg);
+        }
+
+        private static void TakeOff()
+        {
+            Msg_command_long msg = new Msg_command_long();
+            msg.target_system = (byte)Systemid;
+            msg.target_component = (byte)Componentid;
+            msg.command = (ushort)MAV_CMD.MAV_CMD_NAV_TAKEOFF;
+            msg.confirmation = 0;
+            msg.param1 = 0;
+            msg.param2 = 0;
+            msg.param3 = 0;
+            msg.param4 = 0;
+            msg.param5 = 0;
+            msg.param6 = 0;
+            msg.param7 = 5;
 
             SendPacket(msg);
         }
@@ -133,15 +161,30 @@ namespace MavlinkWrapper
             {
                 if ((Hb.base_mode & (byte)MAV_MODE_FLAG.MAV_MODE_FLAG_SAFETY_ARMED) != 0)
                 {
-                    dronState = DroneStates.ARMED;
                     Console.WriteLine("OK!");
-                    HB = false;
+                    dronState = DroneStates.ARMED;
                 }
                 else
                 {
                     Console.Write(".");
                 }
             }
+
+            if (dronState == DroneStates.TAKING_OFF)
+            {
+                //if ((Hb.base_mode & (byte)MAV_MODE_FLAG.MAV_MODE_FLAG_SAFETY_ARMED) != 0)
+                //{
+                //    dronState = DroneStates.FLYING;
+                //    Console.WriteLine("OK!");
+                //    HB = false;
+                //}
+                //else
+                //{
+                    Console.Write(".");
+                //}
+            }
+            
+            Debug.Print(Hb.system_status.ToString("X2") + " " + Hb.base_mode.ToString("X2") + Environment.NewLine);
         }
 
         private static void TelemetryPort_DataReceived(object sender, SerialDataReceivedEventArgs e)

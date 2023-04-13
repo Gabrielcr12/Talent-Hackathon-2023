@@ -42,17 +42,17 @@ Plan 11 Abril
 
 Plan de actividades después de menotrías
 	APP
-		Demo Figma de aplicación para el usuario final
+		Demo Figma de aplicación para el usuario final - Avances OK, modificar color de background y el enfoque de puntos a área
 	DRON
 		Mecanica de sensores
-			Mejor montaje según sus características
-			Sistema de Limpieza adecuado según sus características
-		Aplicacion consola para control de dron para demo con puntos fijos en terraza.
+			Mejor montaje según sus características - Se investigaron caracteristicas de limpieza, pH enjuague lijero 15ml agua, TDS limado (no implementable en esta fase)
+			Sistema de Limpieza adecuado según sus características - Montar bomba de agua
+		Aplicacion consola para control de dron para demo con puntos fijos en terraza - Agregar plan en QGC y solo ejecutarlo desde la app de consola
 	MCU
-		Implementar lectura de sensores
-		Implementar cámara (deseable)
-		Conexión BT
-		App sencilla que despliegue datos de los sensores en tiempo real tambien para video demo
+		Implementar lectura de sensores - OK con cable, falta hacer la implementacion del de distancia, la cámara y la conexión wifi
+		Implementar cámara (deseable) - Ver punto de arriba
+		Conexión WiFi - En progreso
+		App sencilla que despliegue datos de los sensores en tiempo real tambien para video demo - Web page
 	ENTREGABLE
 		Fase 2
 	PRESENTACIÓN
@@ -60,7 +60,7 @@ Plan de actividades después de menotrías
 	INVESTIGACIÓN
 		Consumo de energía
 		Tiempo de vuelo en base a consumo
-		Sensores (montaje, limpieza)
+		Sensores (montaje, limpieza) - OK
 		Parámetros del agua con más impacto (con persona de la comisión estatal del agua)
 
 
